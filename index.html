@@ -141,6 +141,17 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+        /* Style for hyperlinks within list items */
+        .academic-link {
+            color: #3498db; /* Blue color for links */
+            text-decoration: underline; /* Underline links */
+            transition: color 0.2s ease-in-out;
+            margin-left: 0.5rem; /* Small space after percentage */
+            font-size: 0.9em; /* Slightly smaller font for the link */
+        }
+        .academic-link:hover {
+            color: #2980b9; /* Slightly darker blue on hover */
+        }
     </style>
 </head>
 <body class="antialiased text-gray-800">
@@ -201,7 +212,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-primary-blue">B.Tech (Marine Engineering)</h3>
                         <p class="text-gray-700">Indian Maritime University</p>
-                        <p class="text-gray-600">2018 | 76.2%</p>
+                        <p class="text-gray-600">2018 | 76.2% <a href="pdfs/btech_degree.pdf" target="_blank" class="academic-link">(View Certificate)</a></p>
                         <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
                             <li>[Key achievements or relevant coursework from your B.Tech]</li>
                             <li>[Capstone Project or major academic projects]</li>
@@ -210,7 +221,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-primary-blue">Senior Secondary</h3>
                         <p class="text-gray-700">CBSE</p>
-                        <p class="text-gray-600">2014 | 81.4%</p>
+                        <p class="text-gray-600">2014 | 81.4% <a href="pdfs/12th_certificate.pdf" target="_blank" class="academic-link">(View Certificate)</a></p>
                         <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
                             <li>[Add any specific achievements or subjects if relevant]</li>
                         </ul>
@@ -218,7 +229,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-primary-blue">High School</h3>
                         <p class="text-gray-700">ICSE</p>
-                        <p class="text-gray-600">2012 | 86.4%</p>
+                        <p class="text-gray-600">2012 | 86.4% <a href="pdfs/10th_certificate.pdf" target="_blank" class="academic-link">(View Certificate)</a></p>
                         <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
                             <li>[Add any specific achievements or subjects if relevant]</li>
                         </ul>
@@ -260,7 +271,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-primary-blue">Fourth Engineering Officer</h3>
                         <p class="text-gray-700">AG Maritime Pvt. Ltd | Singapore</p>
-                        <p class="text-600">July 2022 - February 2023</p>
+                        <p class="text-gray-600">July 2022 - February 2023</p>
                         <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
                             <li>Independently operated and maintained 6 purifiers, 3 air compressors, and 1 freshwater generator per vessel; ensured 100% equipment uptime over 11 months.</li>
                             <li>Supported implementation of SEEMP & EEXI, completing documentation for 2 vessels; ensured 100% audit readiness for decarbonization compliance.</li>
@@ -316,7 +327,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-primary-blue">Senior Cadet Captain - Bands</h3>
                         <p class="text-gray-700">Marine Engineering and Research Institute</p>
-                        <p class="text-gray-600">July 2017 - June 2018</p>
+                        <p class="text-600">July 2017 - June 2018 <a href="pdfs/senior_cadet_captain_bands.pdf" target="_blank" class="academic-link">(View Document)</a></p>
                         <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
                             <li>[Add specific responsibilities/achievements for this role if you have them]</li>
                         </ul>
@@ -324,7 +335,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-primary-blue">Head of Cultural Affairs</h3>
                         <p class="text-gray-700">Marine Engineering and Research Institute, Kolkata</p>
-                        <p class="text-gray-600">July 2016 - April 2018</p>
+                        <p class="text-gray-600">July 2016 - April 2018 <a href="pdfs/head_cultural_affairs.pdf" target="_blank" class="academic-link">(View Document)</a></p>
                         <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
                             <li>[Add specific responsibilities/achievements for this role if you have them]</li>
                         </ul>
@@ -332,7 +343,7 @@
                     <div>
                         <h3 class="text-xl font-semibold text-primary-blue">Branding and Digital Content Coordinator</h3>
                         <p class="text-gray-700">PGPEx-VLM, Indian Institute of Management - Calcutta</p>
-                        <p class="text-gray-600">May 2025 - Present</p>
+                        <p class="text-gray-600">May 2025 - Present <a href="pdfs/branding_coordinator.pdf" target="_blank" class="academic-link">(View Document)</a></p>
                         <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
                             <li>[Add specific responsibilities/achievements for this role if you have them]</li>
                         </ul>
@@ -462,7 +473,7 @@
 
                 const academics = document.getElementById('academics-section').innerText;
                 const workExperience = document.getElementById('work-experience-section').innerText;
-                const leadershipResponsibilities = document.getElementById('leadership-responsibilities-section').innerText; // New section
+                const leadershipResponsibilities = document.getElementById('leadership-responsibilities-section').innerText;
                 const awards = document.getElementById('awards-section').innerText;
                 const extracurriculars = document.getElementById('extracurriculars-section').innerText;
                 const skills = document.getElementById('skills-section').innerText;
