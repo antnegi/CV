@@ -154,7 +154,7 @@
 
             <!-- Header Section -->
             <header class="text-center bg-gradient-header text-white p-8 rounded-t-3xl rounded-b-lg mb-8 shadow-lg">
-                <img src="https://placehold.co/120x120/3498db/ffffff?text=AS" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                <img src="profile_pic.jpg" alt="profile_pic" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
                 <h1 class="text-5xl font-extrabold mb-2 tracking-tight">ANTRIKSH SINGH NEGI</h1>
                 <p class="text-xl font-light opacity-90">Currently Pursuing PGPEx-VLM from IIM Calcutta</p>
                 <div class="mt-4 flex justify-center space-x-6 text-lg">
@@ -345,6 +345,8 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
+            console.log("Script loaded and DOM content parsed."); // Added for debugging
+
             // Intersection Observer for fade-in animations
             const sections = document.querySelectorAll('.fade-in-section');
             const observerOptions = {
@@ -379,7 +381,10 @@
                 generateSummaryBtn.disabled = true;
 
                 // Collect all relevant text content from the CV
-                const aboutMe = document.querySelector('#academics-section').previousElementSibling.querySelector('p').textContent;
+                // Ensure to get the correct 'About Me' paragraph, as it's not directly inside #academics-section
+                const aboutMeElement = document.querySelector('section.card p.text-lg.leading-relaxed.text-gray-700');
+                const aboutMe = aboutMeElement ? aboutMeElement.textContent : '';
+
                 const academics = document.getElementById('academics-section').innerText;
                 const workExperience = document.getElementById('work-experience-section').innerText;
                 const projects = document.getElementById('projects-section').innerText;
