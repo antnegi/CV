@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Antriksh Singh Negi - Professional CV</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom font import - Inter */
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f2f5; /* Light gray background */
+            overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+        }
+
+        /* Parallax background element */
+        .parallax-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Using a subtle abstract background image. You can replace this URL. */
+            background-image: url('https://placehold.co/1920x1080/d0e0f0/ffffff?text=Abstract+Background');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed; /* This creates the parallax-like effect */
+            z-index: -1; /* Ensure it stays behind content */
+            filter: brightness(0.9); /* Slightly dim the background for better readability of text */
+        }
+
+        /* Custom styles for subtle shadows and rounded corners */
+        .card {
+            background-color: #ffffff;
+            border-radius: 1.5rem; /* More rounded corners */
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08); /* Stronger, softer shadow */
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.12);
+        }
+
+        .section-heading {
+            color: #2c3e50; /* Darker blue-gray for headings */
+            border-bottom: 2px solid #3498db; /* Blue underline */
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .text-primary-blue {
+            color: #3498db; /* Primary blue for accents */
+        }
+
+        .bg-gradient-header {
+            background: linear-gradient(to right, #3498db, #2980b9); /* Blue gradient for header */
+        }
+
+        /* Fade-in and slide-up animation for sections */
+        .fade-in-section {
+            opacity: 0;
+            transform: translateY(30px); /* Start slightly below its final position */
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+            will-change: opacity, transform; /* Optimize for animation performance */
+        }
+
+        .fade-in-section.is-visible {
+            opacity: 1;
+            transform: translateY(0); /* Move to its final position */
+        }
+
+        /* Modal styles */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease-in-out;
+            position: relative; /* For close button positioning */
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        /* Loading spinner */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="antialiased text-gray-800">
+
+    <!-- Parallax Background Element -->
+    <div class="parallax-background"></div>
+
+    <!-- Main content container, positioned above the parallax background -->
+    <div class="min-h-screen flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 relative z-10">
+        <div class="max-w-4xl w-full space-y-8 p-8 bg-white rounded-3xl shadow-2xl">
+
+            <!-- Header Section -->
+            <header class="text-center bg-gradient-header text-white p-8 rounded-t-3xl rounded-b-lg mb-8 shadow-lg">
+                <img src="https://placehold.co/120x120/3498db/ffffff?text=AS" alt="Profile Picture" class="w-32 h-32 rounded-full mx-auto mb-4 border-4 border-white shadow-md">
+                <h1 class="text-5xl font-extrabold mb-2 tracking-tight">ANTRIKSH SINGH NEGI</h1>
+                <p class="text-xl font-light opacity-90">Currently Pursuing PGPEx-VLM from IIM Calcutta</p>
+                <div class="mt-4 flex justify-center space-x-6 text-lg">
+                    <a href="mailto:antrikshsx2026@email.iimcal.ac.in" class="hover:text-gray-200 transition duration-300">
+                        <svg class="w-6 h-6 inline-block mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"></path><path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"></path></svg>
+                        antrikshsx2026@email.iimcal.ac.in
+                    </a>
+                    <a href="tel:+917980801931" class="hover:text-gray-200 transition duration-300">
+                        <svg class="w-6 h-6 inline-block mr-1" fill="currentColor" viewBox="0 0 20 20"><path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.774a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"></path></svg>
+                        +91 7980801931
+                    </a>
+                    <a href="https://www.linkedin.com/in/antrikshnegi/" target="_blank" class="hover:text-gray-200 transition duration-300">
+                        <svg class="w-6 h-6 inline-block mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.761 0 5-2.239 5-5v-14c0-2.761-2.239-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
+                        LinkedIn
+                    </a>
+                </div>
+            </header>
+
+            <!-- Personal Info / Summary Section -->
+            <section class="card p-8 mb-8 fade-in-section">
+                <h2 class="text-3xl font-bold section-heading">About Me</h2>
+                <p class="text-lg leading-relaxed text-gray-700">
+                    Highly motivated and detail-oriented professional currently pursuing PGPEx-VLM from IIM Calcutta. With a strong foundation in [Your Industry/Previous Experience], I am eager to leverage my skills and knowledge to contribute to dynamic environments and drive impactful results. Passionate about continuous learning and problem-solving.
+                </p>
+                <button id="generateSummaryBtn" class="mt-6 px-6 py-3 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:bg-blue-600 transition duration-300 flex items-center justify-center">
+                    <span id="buttonText">Generate CV Summary ✨</span>
+                    <div id="loadingSpinner" class="spinner ml-2 hidden"></div>
+                </button>
+            </section>
+
+            <!-- Academics Section -->
+            <section class="card p-8 mb-8 fade-in-section" id="academics-section">
+                <h2 class="text-3xl font-bold section-heading">Academics</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">PGPEx-VLM</h3>
+                        <p class="text-gray-700">Indian Institute of Management Calcutta (IIM Calcutta)</p>
+                        <p class="text-gray-600">Currently Pursuing</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Add relevant coursework or key learning points from PGPEx-VLM]</li>
+                            <li>[Add any projects or specializations]</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Your Previous Degree, e.g., Bachelor of Technology]</h3>
+                        <p class="text-gray-700">[Your Previous University/College]</p>
+                        <p class="text-gray-600">[Start Year] - [End Year] | [Your GPA/Percentage]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Key achievements or relevant coursework from your previous degree]</li>
+                            <li>[Capstone Project or major academic projects]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Work Experience Section -->
+            <section class="card p-8 mb-8 fade-in-section" id="work-experience-section">
+                <h2 class="text-3xl font-bold section-heading">Work Experience</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Your Latest Job Title]</h3>
+                        <p class="text-gray-700">[Company Name], [City]</p>
+                        <p class="text-gray-600">[Start Date] - [End Date or Present]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Key responsibility and achievement 1]</li>
+                            <li>[Key responsibility and achievement 2]</li>
+                            <li>[Key responsibility and achievement 3]</li>
+                            <li>[Key responsibility and achievement 4]</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Your Previous Job Title]</h3>
+                        <p class="text-gray-700">[Company Name], [City]</p>
+                        <p class="text-gray-600">[Start Date] - [End Date]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Key responsibility and achievement 1]</li>
+                            <li>[Key responsibility and achievement 2]</li>
+                            <li>[Key responsibility and achievement 3]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section -->
+            <section class="card p-8 mb-8 fade-in-section" id="projects-section">
+                <h2 class="text-3xl font-bold section-heading">Projects</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Project Title 1]</h3>
+                        <p class="text-gray-700">[Project Type, e.g., Personal Project] | <a href="#" class="text-blue-600 hover:underline">GitHub Link</a></p>
+                        <p class="text-gray-600">[Start Date] - [End Date]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Description of project and your role/contributions]</li>
+                            <li>[Technologies used]</li>
+                            <li>[Impact or results]</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Project Title 2]</h3>
+                        <p class="text-gray-700">[Project Type, e.g., Academic Project] | <a href="#" class="text-blue-600 hover:underline">GitHub Link</a></p>
+                        <p class="text-gray-600">[Start Date] - [End Date]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Description of project and your role/contributions]</li>
+                            <li>[Technologies used]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Awards and Recognitions Section -->
+            <section class="card p-8 mb-8 fade-in-section" id="awards-section">
+                <h2 class="text-3xl font-bold section-heading">Awards & Recognitions</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Award/Recognition Name 1]</h3>
+                        <p class="text-gray-700">[Issuing Organization] | [Date]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Brief description of the award/recognition]</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Award/Recognition Name 2]</h3>
+                        <p class="text-gray-700">[Issuing Organization] | [Date]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Brief description of the award/recognition]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Extracurriculars Section -->
+            <section class="card p-8 mb-8 fade-in-section" id="extracurriculars-section">
+                <h2 class="text-3xl font-bold section-heading">Extracurriculars</h2>
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Activity/Role 1]</h3>
+                        <p class="text-gray-700">[Organization/Club] | [Years]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Your responsibilities and achievements]</li>
+                        </ul>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue">[Activity/Role 2]</h3>
+                        <p class="text-gray-700">[Organization/Club] | [Years]</p>
+                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
+                            <li>[Your responsibilities and achievements]</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section class="card p-8 mb-8 fade-in-section" id="skills-section">
+                <h2 class="text-3xl font-bold section-heading">Skills</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Key Skills:</h3>
+                        <p class="text-gray-700">[List your key skills relevant to your domain, e.g., Supply Chain Management, Operations, Business Analytics, Project Management]</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Tools & Technologies:</h3>
+                        <p class="text-gray-700">[List relevant software, tools, or technologies, e.g., SAP, Tableau, Python (for data analysis), SQL]</p>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-semibold text-primary-blue mb-2">Languages:</h3>
+                        <p class="text-gray-700">English, Hindi, [Any other languages]</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Footer Section -->
+            <footer class="text-center text-gray-600 mt-12 pt-8 border-t border-gray-200">
+                <p>&copy; 2025 Antriksh Singh Negi. All rights reserved.</p>
+                <p class="mt-2">Designed with <span class="text-red-500">&hearts;</span> using HTML & Tailwind CSS</p>
+            </footer>
+
+        </div>
+    </div>
+
+    <!-- Summary Modal -->
+    <div id="summaryModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button" id="closeModalBtn">&times;</button>
+            <h2 class="text-2xl font-bold text-primary-blue mb-4">CV Summary</h2>
+            <p id="summaryText" class="text-gray-700 leading-relaxed"></p>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Intersection Observer for fade-in animations
+            const sections = document.querySelectorAll('.fade-in-section');
+            const observerOptions = {
+                root: null,
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            const observer = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            // Gemini API Integration for CV Summary
+            const generateSummaryBtn = document.getElementById('generateSummaryBtn');
+            const summaryModal = document.getElementById('summaryModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const summaryText = document.getElementById('summaryText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const buttonText = document.getElementById('buttonText');
+
+            generateSummaryBtn.addEventListener('click', async () => {
+                // Show loading spinner and disable button
+                buttonText.textContent = 'Generating...';
+                loadingSpinner.classList.remove('hidden');
+                generateSummaryBtn.disabled = true;
+
+                // Collect all relevant text content from the CV
+                const aboutMe = document.querySelector('#academics-section').previousElementSibling.querySelector('p').textContent;
+                const academics = document.getElementById('academics-section').innerText;
+                const workExperience = document.getElementById('work-experience-section').innerText;
+                const projects = document.getElementById('projects-section').innerText;
+                const awards = document.getElementById('awards-section').innerText;
+                const extracurriculars = document.getElementById('extracurriculars-section').innerText;
+                const skills = document.getElementById('skills-section').innerText;
+
+                const fullCVText = `
+                    Here is my CV content. Please provide a concise, professional summary (around 3-5 sentences) highlighting my key qualifications, experience, and aspirations. Focus on my strengths and what I bring to the table.
+
+                    About Me: ${aboutMe}
+                    Academics: ${academics}
+                    Work Experience: ${workExperience}
+                    Projects: ${projects}
+                    Awards and Recognitions: ${awards}
+                    Extracurriculars: ${extracurriculars}
+                    Skills: ${skills}
+                `;
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: fullCVText }] });
+                    const payload = { contents: chatHistory };
+                    const apiKey = ""; // Canvas will automatically provide this in runtime
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const generatedSummary = result.candidates[0].content.parts[0].text;
+                        summaryText.textContent = generatedSummary;
+                    } else {
+                        summaryText.textContent = "Could not generate summary. Please try again.";
+                        console.error("Gemini API response structure unexpected:", result);
+                    }
+                } catch (error) {
+                    summaryText.textContent = "An error occurred while generating the summary. Please check your network connection or try again later.";
+                    console.error("Error calling Gemini API:", error);
+                } finally {
+                    // Hide loading spinner, enable button, and show modal
+                    loadingSpinner.classList.add('hidden');
+                    buttonText.textContent = 'Generate CV Summary ✨';
+                    generateSummaryBtn.disabled = false;
+                    summaryModal.classList.add('show');
+                }
+            });
+
+            // Close modal functionality
+            closeModalBtn.addEventListener('click', () => {
+                summaryModal.classList.remove('show');
+            });
+
+            // Close modal if clicking outside content
+            summaryModal.addEventListener('click', (e) => {
+                if (e.target === summaryModal) {
+                    summaryModal.classList.remove('show');
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
