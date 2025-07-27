@@ -73,74 +73,6 @@
             transform: translateY(0); /* Move to its final position */
         }
 
-        /* Modal styles */
-        .modal-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.6);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            z-index: 1000;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        }
-
-        .modal-overlay.show {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        .modal-content {
-            background-color: white;
-            padding: 2.5rem;
-            border-radius: 1rem;
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-            max-width: 600px;
-            width: 90%;
-            transform: translateY(-20px);
-            transition: transform 0.3s ease-in-out;
-            position: relative; /* For close button positioning */
-        }
-
-        .modal-overlay.show .modal-content {
-            transform: translateY(0);
-        }
-
-        .close-button {
-            position: absolute;
-            top: 1rem;
-            right: 1rem;
-            background: none;
-            border: none;
-            font-size: 1.5rem;
-            cursor: pointer;
-            color: #666;
-            transition: color 0.2s;
-        }
-
-        .close-button:hover {
-            color: #333;
-        }
-
-        /* Loading spinner */
-        .spinner {
-            border: 4px solid rgba(0, 0, 0, 0.1);
-            border-left-color: #3498db;
-            border-radius: 50%;
-            width: 24px;
-            height: 24px;
-            animation: spin 1s linear infinite;
-        }
-
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
         /* Style for hyperlinks within list items */
         .academic-link {
             color: #3498db; /* Blue color for links */
@@ -190,10 +122,6 @@
                 <p class="text-base sm:text-lg leading-relaxed text-gray-700 text-justify">
                     I am an ex-Marine Engineering Officer with extensive global sailing experience, now pursuing an MBA to pivot into strategic and leadership roles in operations and management. My journey has been shaped by driving operational excellence, optimizing performance, and ensuring compliance with international standards in high-stakes environments. Leading multicultural teams under pressure has sharpened my ability to navigate complexity, foster collaboration, and deliver impactful results. Beyond technical expertise, I have demonstrated exemplary leadership through institutional, cultural, and social initiatives—building a well-rounded foundation to create value in diverse business landscapes.
                 </p>
-                <button id="generateSummaryBtn" class="mt-4 sm:mt-6 px-4 py-2 sm:px-6 sm:py-3 bg-blue-500 text-white font-semibold rounded-full shadow-lg hover:bg-blue-600 transition duration-300 flex items-center justify-center text-sm sm:text-base w-full sm:w-auto">
-                    <span id="buttonText">Generate CV Summary ✨</span>
-                    <div id="loadingSpinner" class="spinner ml-2 hidden"></div>
-                </button>
             </section>
 
             <!-- Academics Section -->
@@ -202,37 +130,23 @@
                 <div class="space-y-4 sm:space-y-6">
                     <div>
                         <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">PGPEx-VLM</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">Indian Institute of Management - Calcutta</p>
-                        <p class="text-gray-600 text-sm sm:text-base">2026 | Currently Pursuing</p>
-                        <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Add relevant coursework or key learning points from PGPEx-VLM]</li>
-                            <li>[Add any projects or specializations]</li>
-                        </ul>
+                        <p class="text-gray-700 text-sm sm:text-base">Indian Institute of Management Calcutta</p>
+                        <p class="text-gray-600 text-sm sm:text-base">2026 | CGPA</p>
                     </div>
                     <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">B.Tech (Marine Engineering)</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">Indian Maritime University</p>
+                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">B.Tech Marine</h3>
+                        <p class="text-gray-700 text-sm sm:text-base">Marine Engineering and Research Institute, Kolkata</p>
                         <p class="text-gray-600 text-sm sm:text-base">2018 | 76.2% <a href="pdfs/btech_degree.pdf" target="_blank" class="academic-link">(View Certificate)</a></p>
-                        <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Key achievements or relevant coursework from your B.Tech]</li>
-                            <li>[Capstone Project or major academic projects]</li>
-                        </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-primary-blue">Senior Secondary</h3>
-                        <p class="text-gray-700">CBSE</p>
+                        <h3 class="text-xl font-semibold text-primary-blue">CLASS XII</h3>
+                        <p class="text-gray-700">Govt. Model Sr. Sec. School, Sector 23-A, Chandigarh</p>
                         <p class="text-gray-600">2014 | 81.4% <a href="pdfs/12th_certificate.pdf" target="_blank" class="academic-link">(View Certificate)</a></p>
-                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
-                            <li>[Add any specific achievements or subjects if relevant]</li>
-                        </ul>
                     </div>
                     <div>
-                        <h3 class="text-xl font-semibold text-primary-blue">High School</h3>
-                        <p class="text-gray-700">ICSE</p>
+                        <h3 class="text-xl font-semibold text-primary-blue">CLASS X</h3>
+                        <p class="text-gray-700">St. Xavier Sr. Sec. School, Sector 44, Chandigarh</p>
                         <p class="text-gray-600">2012 | 86.4% <a href="pdfs/10th_certificate.pdf" target="_blank" class="academic-link">(View Certificate)</a></p>
-                        <ul class="list-disc list-inside text-gray-700 mt-2 ml-4">
-                            <li>[Add any specific achievements or subjects if relevant]</li>
-                        </ul>
                     </div>
                 </div>
             </section>
@@ -295,7 +209,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Junior Engineer</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">AG Maritime Pvt. Ltd.| Laurel Ship Management Pte. Ltd. | Singapore</p>
+                        <p class="text-gray-700 text-sm sm:text-base">AG Maritime Pvt. Ltd | Singapore</p>
                         <p class="text-gray-600 text-sm sm:text-base">July 2021 - February 2022</p>
                         <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
                             <li>Conducted 30+ overhauls of purifiers, pumps, and compressors; improved machinery uptime by 15% through proactive routine maintenance.</li>
@@ -307,7 +221,7 @@
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Engine Cadet</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">AG Maritime Pvt. Ltd.| Laurel Ship Management Pte. Ltd. | Singapore</p>
+                        <p class="text-gray-700 text-sm sm:text-base">Ag Maritime Pvt. Ltd | Singapore</p>
                         <p class="text-gray-600 text-sm sm:text-base">May 2018 - January 2021</p>
                         <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
                             <li>Participated in dry docking of Morning Margareta (Zhoushan Xinya Shipyard Co. Ltd) involving 40+ machinery inspections; supported overhaul of critical engine room components, contributing to timely dry dock completion in 21 days.</li>
@@ -325,48 +239,33 @@
                 <h2 class="text-2xl sm:text-3xl font-bold section-heading">Leadership & Responsibilities</h2>
                 <div class="space-y-4 sm:space-y-6">
                     <div>
+                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Branding and Digital Content Coordinator</h3>
+                        <p class="text-gray-700 text-sm sm:text-base">PGPEx-VLM, Indian Institute of Management - Calcutta</p>
+                        <p class="text-gray-600 text-sm sm:text-base">May 2025 - Present <a href="pdfs/branding_coordinator.pdf" target="_blank" class="academic-link">(View Document)</a></p>
+                    </div>
+                    <div>
                         <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Senior Cadet Captain - Bands</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">Marine Engineering and Research Institute</p>
+                        <p class="text-gray-700 text-sm sm:text-base">Marine Engineering and Research Institute, Kolkata</p>
                         <p class="text-gray-600 text-sm sm:text-base">July 2017 - June 2018 <a href="pdfs/senior_cadet_captain_bands.pdf" target="_blank" class="academic-link">(View Document)</a></p>
-                        <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Add specific responsibilities/achievements for this role if you have them]</li>
-                        </ul>
                     </div>
                     <div>
                         <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Head of Cultural Affairs</h3>
                         <p class="text-gray-700 text-sm sm:text-base">Marine Engineering and Research Institute, Kolkata</p>
                         <p class="text-gray-600 text-sm sm:text-base">July 2016 - April 2018 <a href="pdfs/head_cultural_affairs.pdf" target="_blank" class="academic-link">(View Document)</a></p>
-                        <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Add specific responsibilities/achievements for this role if you have them]</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Branding and Digital Content Coordinator</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">PGPEx-VLM, Indian Institute of Management - Calcutta</p>
-                        <p class="text-gray-600 text-sm sm:text-base">May 2025 - Present <a href="pdfs/branding_coordinator.pdf" target="_blank" class="academic-link">(View Document)</a></p>
-                        <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Add specific responsibilities/achievements for this role if you have them]</li>
-                        </ul>
                     </div>
                 </div>
             </section>
 
-            <!-- Awards and Recognitions Section -->
-            <section class="card p-4 sm:p-8 mb-6 sm:mb-8 fade-in-section" id="awards-section">
-                <h2 class="text-2xl sm:text-3xl font-bold section-heading">Awards & Recognitions</h2>
+            <!-- Academic Distinctions & Co-curricular Achievements Section -->
+            <section class="card p-4 sm:p-8 mb-6 sm:mb-8 fade-in-section" id="academic-distinctions-section">
+                <h2 class="text-2xl sm:text-3xl font-bold section-heading">Academic Distinctions & Co-curricular Achievements</h2>
                 <div class="space-y-4 sm:space-y-6">
                     <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">[Award/Recognition Name 1]</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">[Issuing Organization] | [Date]</p>
+                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Leadership & Accolades</h3>
                         <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Brief description of the award/recognition]</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">[Award/Recognition Name 2]</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">[Issuing Organization] | [Date]</p>
-                        <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Brief description of the award/recognition]</li>
+                            <li>Demonstrated exemplary leadership by managing 30+ high-impact events at MERI Kolkata.</li>
+                            <li>Awarded ₹75,000 merit scholarship by IMU for ranking among the top 10 university-wide.</li>
+                            <li>Organized Tempest 2016, Asia's largest marine fest, with over 20,000 attendees from 280+ colleges.</li>
                         </ul>
                     </div>
                 </div>
@@ -374,20 +273,12 @@
 
             <!-- Extracurriculars Section -->
             <section class="card p-4 sm:p-8 mb-6 sm:mb-8 fade-in-section" id="extracurriculars-section">
-                <h2 class="text-2xl sm:text-3xl font-bold section-heading">Extracurriculars</h2>
+                <h2 class="text-2xl sm:text-3xl font-bold section-heading">Extracurricular Achievements</h2>
                 <div class="space-y-4 sm:space-y-6">
                     <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">[Activity/Role 1]</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">[Organization/Club] | [Years]</p>
                         <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Your responsibilities and achievements]</li>
-                        </ul>
-                    </div>
-                    <div>
-                        <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">[Activity/Role 2]</h3>
-                        <p class="text-gray-700 text-sm sm:text-base">[Organization/Club] | [Years]</p>
-                        <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>[Your responsibilities and achievements]</li>
+                            <li>Co-founded Adhvaya Jewelry; led GTM strategy, built early clientele, & gained industry recognition.</li>
+                            <li>Led 3 social initiatives with UYM, driving COVID relief, education access, and rural upliftment.</li>
                         </ul>
                     </div>
                 </div>
@@ -421,15 +312,6 @@
         </div>
     </div>
 
-    <!-- Summary Modal -->
-    <div id="summaryModal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="close-button" id="closeModalBtn">&times;</button>
-            <h2 class="text-xl sm:text-2xl font-bold text-primary-blue mb-3 sm:mb-4">CV Summary</h2>
-            <p id="summaryText" class="text-gray-700 leading-relaxed text-sm sm:text-base"></p>
-        </div>
-    </div>
-
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log("Script loaded and DOM content parsed."); // Added for debugging
@@ -451,91 +333,6 @@
             }, observerOptions);
             sections.forEach(section => {
                 observer.observe(section);
-            });
-
-            // Gemini API Integration for CV Summary
-            const generateSummaryBtn = document.getElementById('generateSummaryBtn');
-            const summaryModal = document.getElementById('summaryModal');
-            const closeModalBtn = document.getElementById('closeModalBtn');
-            const summaryText = document.getElementById('summaryText');
-            const loadingSpinner = document.getElementById('loadingSpinner');
-            const buttonText = document.getElementById('buttonText');
-
-            generateSummaryBtn.addEventListener('click', async () => {
-                // Show loading spinner and disable button
-                buttonText.textContent = 'Generating...';
-                loadingSpinner.classList.remove('hidden');
-                generateSummaryBtn.disabled = true;
-
-                // Collect all relevant text content from the CV
-                const aboutMeElement = document.querySelector('section.card p.text-lg.leading-relaxed.text-gray-700');
-                const aboutMe = aboutMeElement ? aboutMeElement.textContent : '';
-
-                const academics = document.getElementById('academics-section').innerText;
-                const workExperience = document.getElementById('work-experience-section').innerText;
-                const leadershipResponsibilities = document.getElementById('leadership-responsibilities-section').innerText;
-                const awards = document.getElementById('awards-section').innerText;
-                const extracurriculars = document.getElementById('extracurriculars-section').innerText;
-                const skills = document.getElementById('skills-section').innerText;
-
-                const fullCVText = `
-                    Here is my CV content. Please provide a concise, professional summary (around 3-5 sentences) highlighting my key qualifications, experience, and aspirations. Focus on my strengths and what I bring to the table.
-
-                    About Me: ${aboutMe}
-                    Academics: ${academics}
-                    Work Experience: ${workExperience}
-                    Leadership & Responsibilities: ${leadershipResponsibilities}
-                    Awards and Recognitions: ${awards}
-                    Extracurriculars: ${extracurriculars}
-                    Skills: ${skills}
-                `;
-
-                try {
-                    let chatHistory = [];
-                    chatHistory.push({ role: "user", parts: [{ text: fullCVText }] });
-                    const payload = { contents: chatHistory };
-                    const apiKey = ""; // Canvas will automatically provide this in runtime
-                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
-
-                    const response = await fetch(apiUrl, {
-                        method: 'POST',
-                        headers: { 'Content-Type': 'application/json' },
-                        body: JSON.stringify(payload)
-                    });
-
-                    const result = await response.json();
-
-                    if (result.candidates && result.candidates.length > 0 &&
-                        result.candidates[0].content && result.candidates[0].content.parts &&
-                        result.candidates[0].content.parts.length > 0) {
-                        const generatedSummary = result.candidates[0].content.parts[0].text;
-                        summaryText.textContent = generatedSummary;
-                    } else {
-                        summaryText.textContent = "Could not generate summary. Please try again.";
-                        console.error("Gemini API response structure unexpected:", result);
-                    }
-                } catch (error) {
-                    summaryText.textContent = "An error occurred while generating the summary. Please check your network connection or try again later.";
-                    console.error("Error calling Gemini API:", error);
-                } finally {
-                    // Hide loading spinner, enable button, and show modal
-                    loadingSpinner.classList.add('hidden');
-                    buttonText.textContent = 'Generate CV Summary ✨';
-                    generateSummaryBtn.disabled = false;
-                    summaryModal.classList.add('show');
-                }
-            });
-
-            // Close modal functionality
-            closeModalBtn.addEventListener('click', () => {
-                summaryModal.classList.remove('show');
-            });
-
-            // Close modal if clicking outside content
-            summaryModal.addEventListener('click', (e) => {
-                if (e.target === summaryModal) {
-                    summaryModal.classList.remove('show');
-                }
             });
         });
     </script>
