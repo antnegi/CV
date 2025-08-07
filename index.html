@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Antriksh Singh Negi - Professional CV</title>
-    <!-- Tailwind CSS CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Replaced Tailwind CSS JIT CDN with a pre-compiled version for better cross-browser compatibility -->
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@latest/dist/tailwind.min.css" rel="stylesheet">
     <style>
         /* Custom font import - Inter */
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
@@ -14,6 +14,7 @@
             font-family: 'Inter', sans-serif;
             background-color: #f0f2f5; /* Light gray background */
             overflow-x: hidden; /* Prevent horizontal scroll due to animations */
+            min-height: 100vh; /* Ensure body takes full viewport height */
         }
 
         /* Parallax background element */
@@ -73,6 +74,74 @@
             transform: translateY(0); /* Move to its final position */
         }
 
+        /* Modal styles (kept for reference, but button removed) */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.6);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .modal-overlay.show {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            max-width: 600px;
+            width: 90%;
+            transform: translateY(-20px);
+            transition: transform 0.3s ease-in-out;
+            position: relative; /* For close button positioning */
+        }
+
+        .modal-overlay.show .modal-content {
+            transform: translateY(0);
+        }
+
+        .close-button {
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            background: none;
+            border: none;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #666;
+            transition: color 0.2s;
+        }
+
+        .close-button:hover {
+            color: #333;
+        }
+
+        /* Loading spinner (kept for reference, but button removed) */
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            border-left-color: #3498db;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            animation: spin 1s linear infinite;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
         /* Style for hyperlinks within list items */
         .academic-link {
             color: #3498db; /* Blue color for links */
@@ -92,12 +161,13 @@
     <div class="parallax-background"></div>
 
     <!-- Main content container, positioned above the parallax background -->
-    <div class="min-h-screen flex items-center justify-center py-6 px-2 sm:px-6 lg:px-8 relative z-10">
-        <div class="max-w-4xl w-full space-y-6 p-4 sm:p-8 bg-white rounded-3xl shadow-2xl">
+    <div class="relative z-10 py-6 px-2 sm:px-6 lg:px-8">
+        <div class="max-w-4xl w-full mx-auto space-y-6 p-4 sm:p-8 bg-white rounded-3xl shadow-2xl flex flex-col">
 
             <!-- Header Section -->
             <header class="text-center bg-gradient-header text-white p-6 sm:p-8 rounded-t-3xl rounded-b-lg mb-6 sm:mb-8 shadow-lg">
-                <img src="profile_pic.jpg" alt="profile_pic" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-3 sm:mb-4 border-4 border-white shadow-md">
+                <!-- Replaced local image path with a placeholder URL -->
+                <img src="profile_pic.jpg" alt="Antriksh Singh Negi Profile" class="w-24 h-24 sm:w-32 sm:h-32 rounded-full mx-auto mb-3 sm:mb-4 border-4 border-white shadow-md">
                 <h1 class="text-3xl sm:text-5xl font-extrabold mb-1 sm:mb-2 tracking-tight">ANTRIKSH SINGH NEGI</h1>
                 <p class="text-base sm:text-xl font-light opacity-90">Currently Pursuing PGPEx-VLM from IIM Calcutta</p>
                 <div class="mt-3 sm:mt-4 flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0 sm:space-x-6 text-sm sm:text-lg">
@@ -120,8 +190,9 @@
             <section class="card p-4 sm:p-8 mb-6 sm:mb-8 fade-in-section">
                 <h2 class="text-2xl sm:text-3xl font-bold section-heading">About Me</h2>
                 <p class="text-base sm:text-lg leading-relaxed text-gray-700 text-justify">
-                    I am an ex-Marine Engineering Officer with extensive global sailing experience, now pursuing an MBA to pivot into strategic and leadership roles in operations and management. My journey has been shaped by driving operational excellence, optimizing performance, and ensuring compliance with international standards in high-stakes environments. Leading multicultural teams under pressure has sharpened my ability to navigate complexity, foster collaboration, and deliver impactful results. Beyond technical expertise, I have demonstrated exemplary leadership through institutional, cultural, and social initiatives—building a well-rounded foundation to create value in diverse business landscapes.
+                    I am an ex-Marine Engineering Officer with extensive global sailing experience, now pursuing an MBA to pivot into strategic and leadership roles in operations and management. My journey has been shaped by driving operational excellence, optimizing performance, and ensuring compliance with international standards in high stakes environments. Leading multicultural teams under pressure has sharpened my ability to navigate complexity, foster collaboration, and deliver impactful results. Beyond technical expertise, I have demonstrated exemplary leadership through institutional, cultural, and social initiatives building a well rounded foundation to create value in diverse business landscapes.
                 </p>
+                <!-- Removed the "Generate CV Summary" button as requested -->
             </section>
 
             <!-- Academics Section -->
@@ -263,9 +334,9 @@
                     <div>
                         <h3 class="text-lg sm:text-xl font-semibold text-primary-blue">Leadership & Accolades</h3>
                         <ul class="list-disc list-inside text-gray-700 mt-1 ml-4 text-sm sm:text-base">
-                            <li>Demonstrated exemplary leadership by managing 30+ high-impact events at MERI Kolkata.</li>
-                            <li>Awarded ₹75,000 merit scholarship by IMU for ranking among the top 10 university-wide.</li>
-                            <li>Organized Tempest 2016, Asia's largest marine fest, with over 20,000 attendees from 280+ colleges.</li>
+                            <li>Demonstrated <b>exemplary leadership</b> by managing <b>30+ high-impact</b> events at MERI Kolkata.</li>
+                            <li>Awarded <b>₹75,000 merit scholarship</b> by IMU for ranking among the <b>top 10 </b>university-wide.</li>
+                            <li>Organized <b>Tempest 2016</b>, Asia's largest marine fest, with over <b>20,000 attendees</b> from <b>280+ colleges</b>.</li>
                         </ul>
                     </div>
                 </div>
@@ -312,6 +383,17 @@
         </div>
     </div>
 
+    <!-- Removed the Summary Modal as the button to trigger it was removed -->
+    <!--
+    <div id="summaryModal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="close-button" id="closeModalBtn">&times;</button>
+            <h2 class="text-xl sm:text-2xl font-bold text-primary-blue mb-3 sm:mb-4">CV Summary</h2>
+            <p id="summaryText" class="text-gray-700 leading-relaxed text-sm sm:text-base"></p>
+        </div>
+    </div>
+    -->
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             console.log("Script loaded and DOM content parsed."); // Added for debugging
@@ -334,6 +416,94 @@
             sections.forEach(section => {
                 observer.observe(section);
             });
+
+            // Removed all JavaScript logic related to the "Generate CV Summary" button and modal
+            /*
+            const generateSummaryBtn = document.getElementById('generateSummaryBtn');
+            const summaryModal = document.getElementById('summaryModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const summaryText = document.getElementById('summaryText');
+            const loadingSpinner = document.getElementById('loadingSpinner');
+            const buttonText = document.getElementById('buttonText');
+
+            generateSummaryBtn.addEventListener('click', async () => {
+                // Show loading spinner and disable button
+                buttonText.textContent = 'Generating...';
+                loadingSpinner.classList.remove('hidden');
+                generateSummaryBtn.disabled = true;
+
+                // Collect all relevant text content from the CV
+                const aboutMeElement = document.querySelector('section.card p.text-lg.leading-relaxed.text-gray-700');
+                const aboutMe = aboutMeElement ? aboutMeElement.textContent : '';
+
+                const academics = document.getElementById('academics-section').innerText;
+                const workExperience = document.getElementById('work-experience-section').innerText;
+                const leadershipResponsibilities = document.getElementById('leadership-responsibilities-section').innerText;
+                const academicDistinctions = document.getElementById('academic-distinctions-section').innerText;
+                const extracurriculars = document.getElementById('extracurriculars-section').innerText;
+                const skills = document.getElementById('skills-section').innerText;
+
+                const fullCVText = `
+                    Here is my CV content. Please provide a concise, professional summary (around 3-5 sentences) highlighting my key qualifications, experience, and aspirations. Focus on my strengths and what I bring to the table.
+
+                    About Me: ${aboutMe}
+                    Academics: ${academics}
+                    Work Experience: ${workExperience}
+                    Leadership & Responsibilities: ${leadershipResponsibilities}
+                    Academic Distinctions & Co-curricular Achievements: ${academicDistinctions}
+                    Extracurricular Achievements: ${extracurriculars}
+                    Skills: ${skills}
+                `;
+
+                try {
+                    let chatHistory = [];
+                    chatHistory.push({ role: "user", parts: [{ text: fullCVText }] });
+                    const payload = { contents: chatHistory };
+                    // Updated model to gemini-2.5-flash-preview-05-20
+                    const apiKey = ""; // Canvas will automatically provide this in runtime
+                    const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 &&
+                        result.candidates[0].content && result.candidates[0].content.parts &&
+                        result.candidates[0].content.parts.length > 0) {
+                        const generatedSummary = result.candidates[0].content.parts[0].text;
+                        summaryText.textContent = generatedSummary;
+                    } else {
+                        summaryText.textContent = "Could not generate summary. Please try again.";
+                        console.error("Gemini API response structure unexpected:", result);
+                    }
+                } catch (error) {
+                    summaryText.textContent = "An error occurred while generating the summary. Please check your network connection or try again later.";
+                    console.error("Error calling Gemini API:", error);
+                } finally {
+                    // Hide loading spinner, enable button, and show modal
+                    loadingSpinner.classList.add('hidden');
+                    buttonText.textContent = 'Generate CV Summary ✨';
+                    generateSummaryBtn.disabled = false;
+                    summaryModal.classList.add('show');
+                }
+            });
+
+            // Close modal functionality
+            closeModalBtn.addEventListener('click', () => {
+                summaryModal.classList.remove('show');
+            });
+
+            // Close modal if clicking outside content
+            summaryModal.addEventListener('click', (e) => {
+                if (e.target === summaryModal) {
+                    summaryModal.classList.remove('show');
+                }
+            });
+            */
         });
     </script>
 
